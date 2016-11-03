@@ -66,9 +66,9 @@ You'll see the following files in your working directory:
 
 ### serverless.yml
 
-Each Service configuration is managed in the `serverless.yml` file. The main responsibilities of this file are:
+Each *Serverless service* configuration is managed in the `serverless.yml` file. The main responsibilities of this file are:
 
-  - Declare a Serverless Service
+  - Declare a Serverless service
   - Define one or multiple functions in the service
   - Define the provider the service will be deployed to (and the runtime if provided)
   - Define custom plugins to be used

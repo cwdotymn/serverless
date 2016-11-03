@@ -12,16 +12,13 @@ layout: Doc
 
 # Introduction
 
-The Serverless Framework helps you develop and deploy serverless architectures built with AWS Lambda, Google CloudFunctions, Azure Functions, IBM OpenWhisk and other serverless compute providers, effortlessly.
-
-It's a command line interface (CLI) that offers structure, automation and best practices out-of-the-box, allowing you to build sophisticated, event-driven, serverless architectures, in minutes.  
+The Serverless Framework helps you develop and deploy your AWS Lambda functions, along with the AWS infrastructure resources they require.  It's a CLI that offers structure, automation and best practices out-of-the-box, allowing you to focus on building sophisticated, event-driven, serverless architectures, comprised of Functions and Events.
 
 A few things the Serverless Framework does differently than a normal application Framework are:
-
 * It manages your code as well as your infrastructure
 * It supports multiple languages (Node.js, Python, Java, and more)
 
-This guide focuses exclusively on using the Serverless Framework with AWS and AWS Lambda.
+Here are the Framework's main concepts and how they pertain to AWS and Lambda...
 
 ## Concepts
 
@@ -33,11 +30,11 @@ A Function is an AWS Lambda function.  It's an independent unit of deployment, l
 * *Processing a file in a database*
 * *Performing a scheduled task*
 
-You can perform multiple jobs in your code, but we don't recommend doing that without good reason. Separation of concerns is best and the Framework is designed to help you easily develop and deploy many Functions, so you can maintain separation of concerns, without hassle.
+You can perform multiple jobs in your code, but we don't recommend doing that without good reason.  Separation of concerns is best and the Framework is designed to help you easily develop and deploy Functions, as well as manage lots of them.
 
 ### Events
 
-Anything that triggers an AWS Lambda Function to execute is regarded by the Framework as an **Event**.  Events state changes on your AWS infrastructure such as:
+Anything that triggers an AWS Lambda Function to execute is regarded by the Framework as an **Event**.  Events are infrastructure events on AWS such as:
 
 * *An AWS API Gateway HTTP endpoint (e.g., for a REST API)*
 * *An AWS S3 bucket upload (e.g., for an image)*
@@ -46,11 +43,11 @@ Anything that triggers an AWS Lambda Function to execute is regarded by the Fram
 * *A CloudWatch Alert (e.g., something happened)*
 * *And more...*
 
-When you define an Event for your AWS Lambda functions in the Serverless Framework, the Framework will automatically create any infrastructure necessary for that Event (e.g., an API Gateway endpoint) and configure your AWS Lambda Functions to listen to it.
+When you define an event for your AWS Lambda functions in the Serverless Framework, the Framework will automatically create any infrastructure necessary for that event (e.g., an API Gateway endpoint) and configure your AWS Lambda Functions to listen to it.
 
 ### Resources
 
-**Resources** are AWS infrastructure resources which your Functions use such as:
+**Resources** are AWS infrastructure components which your Functions use such as:
 
 * *An AWS DynamoDB Table (e.g., for saving Users/Posts/Comments data)*
 * *An AWS S3 Bucket (e.g., for saving images or files)*
@@ -61,24 +58,23 @@ The Serverless Framework not only deploys your Functions and the Events that tri
 
 ### Services
 
-A **Service** is the Framework's unit of organization. You can think of it as a project (though you can have multiple Services for a single project or application). A Service is where you define your Functions, the Events that trigger them, and the Resources your Functions use, all in a single file entitled `serverless.yml`. It looks like this:
+A **Service** is the Framework's unit of organization.  You can think of it as a project file, though you can have multiple services for a single application.  It's where you define your Functions, the Events that trigger them, and the Resources your Functions use, all in one file entitled `serverless.yml`.  It looks like this:
 
 ```yml
-# serverless.yml
+// serverless.yml
 
 service: users
 
-functions: # Your Functions
+functions: // Your "Functions"
   usersCreate:
-    events: # The Events that trigger this function
+    events: // The "Events" that trigger this function
       - http: post users/create
   usersCreate:
     events:
       - http: delete users/delete
 
-resources: # The Resources your Functions use.  Raw AWS CloudFormation syntax goes in here.
+resources: // The "Resources" your "Functions" use.  Raw AWS CloudFormation goes in here.
 ```
-
 When you deploy with the Framework by running `serverless deploy`, everything in `serverless.yml` is deployed at once.
 
 ### Plugins

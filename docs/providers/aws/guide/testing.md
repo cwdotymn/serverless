@@ -12,7 +12,7 @@ layout: Doc
 
 # Testing
 
-Serverless introduces a lot of simplifications when it comes to serving business logic. We only need to provide handler function that almost entirely implements business logic. The only thing that we need to apply are handler function arguments that are passed by FaaS provider. E.g. AWS Lambda passes 3 arguments `event`, `context` and `callback` to Node.js functions. Of course list of arguments differs between languages and, what is more important, between FaaS providers.
+Serverless introduces a lot of simplifications when it comes to serving business logic. We only need to provide handler function that almost entirely implements business logic. The only thing that we need to apply to are handler function arguments that are passed by FaaS provider. E.g. AWS Lambda passes 3 arguments `event`, `context` and `callback` to Node.js functions. Of course list of arguments differs between languages and, what is more important, between FaaS providers.
 
 Another important factor is a cloud environment. Basically, it's impossible to emulate AWS locally. Of course projects like [dynamodb-local](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html) or [kinesalite](https://github.com/mhart/kinesalite) may help but AWS (and other providers) provide much more services. We shouldn't rely on local implementations if we want to be 100% sure that our service won't fail after deploying to production environment.
 

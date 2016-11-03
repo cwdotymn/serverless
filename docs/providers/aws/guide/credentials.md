@@ -32,7 +32,7 @@ AWS Access Key Id needs a subscription for the service
 
 Don't worry, you won't be charged for signing up.  New AWS users get access to the [AWS Free Tier](https://aws.amazon.com/free/), which let's you use many AWS resources for free for 1 year, like [AWS Lambda](https://aws.amazon.com/lambda/pricing/).
 
-While in the AWS Free Tier, you can build an entire application on AWS Lambda, AWS API Gateway, and more, without getting charged for 1 year.  As long as you don't exceed the resources in the Free Tier.
+While in the AWS Free Tier, you can build an entire application on AWS Lambda, AWS API Gateway, and more, without getting charged for 1 year...  As long as you don't exceed the resources in the Free Tier.
 
 ### Creating AWS Access Keys
 
@@ -95,7 +95,7 @@ provider:
 
 As an advanced use-case, you can deploy different stages to different accounts by using different profiles per stage. In order to use different profiles per stage, you must leverage [variables](https://serverless.com/framework/docs/providers/aws/guide/variables) and the provider profile setting.
 
-This example `serverless.yml` snippet will load the profile depending upon the stage specified in the command line options (or default to 'dev' if unspecified):
+This example `serverless.yml` snippet will load the profile depending upon the stage specified in the command line options (or default to 'dev' if unspecified);
 
 ```yml
 service: new-service
